@@ -316,6 +316,8 @@
     <!-- スマホメニュー -->
     <div class="l-sp-menu" id="sp_menu">
       <div class="p-sp-menu">
+          <!-- 閉じるボタン -->
+          <button class="p-sp-menu__close-btn" id="sp_menu_close_btn">×</button>
           <ul class="p-sp-menu__list">
               <li class="p-sp-menu__item">
                   <a href="#"></a>
@@ -352,7 +354,7 @@
     <script>
         $("#sp_menu_btn").on("click",function(){
             if($(this).hasClass('is-active')){
-                $(this).removeClass(is-active);
+                $(this).removeClass('is-active');
                 $("#sp_menu").removeClass('is-active');
                 $("html").removeClass('is-fixed');
             }else{
@@ -360,12 +362,19 @@
                 $("#sp_menu").addClass('is-active');
                 $("html").addClass('is-fixed');
             }
-            $(this).addClass('is-active');
+            // $(this).addClass('is-active');
         });
         $(".p-sp-menu__link").on("click",function(){
             $("#sp_menu_btn").removeClass('is-active');
                 $("#sp_menu").removeClass('is-active');
                 $("html").removeClass('is-fixed');
+        });
+        
+        // メニューの閉じるボタン（X印）クリックでメニューを閉じる
+        $("#sp_menu_close_btn").on("click", function () {
+          $("#sp_menu_btn").removeClass("is-active");
+          $("#sp_menu").removeClass("is-active");
+          $("html").removeClass("is-fixed");
         });
 
         // スムーススクロール
